@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/user-service")
 public class UserController {
 
     private Environment env;
@@ -38,11 +38,6 @@ public class UserController {
         return greeting.getMessage();
         //return this.env.getProperty("greeting.message");
     }
-//
-//    @PostMapping
-//    public String createUser(@RequestBody RequestUser user) {
-//
-//    }
 
     @PostMapping(value = "/users")
     public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser user) {

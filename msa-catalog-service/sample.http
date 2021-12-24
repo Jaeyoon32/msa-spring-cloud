@@ -1,0 +1,4 @@
+GET http://localhost:8080/catalog-service/health-check
+
+###
+GET http://localhost:12345/catalog-service/catalogs

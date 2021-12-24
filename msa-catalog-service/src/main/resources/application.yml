@@ -1,9 +1,9 @@
 server:
-  port: 54321
+  port: 12345
 
 spring:
   application:
-    name: user-service
+    name: catalog-service
 
   h2:
     console:
@@ -11,6 +11,13 @@ spring:
       settings:
         web-allow-others: true
       path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    generate-ddl: true
+    defer-datasource-initialization: true
 
   datasource:
     driver-class-name: org.h2.Driver
@@ -26,5 +33,6 @@ eureka:
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
 
-greeting:
-  message: Welcome to the MSA Prototype
+logging:
+  level:
+    com.kidd.msacatalogservice: DEBUG

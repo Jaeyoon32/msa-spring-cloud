@@ -1,7 +1,7 @@
 GET http://localhost:54321/welcome
 
 ###
-GET http://localhost:54321/user-service/health-check
+GET http://127.0.0.1:8080/user-service/health-check
 
 ###
 POST http://localhost:8080/user-service/users

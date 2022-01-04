@@ -28,3 +28,7 @@ eureka:
 
 greeting:
   message: Welcome to the MSA Prototype
+
+logging:
+  level:
+    com.kidd.msasample.msauserservice.client: DEBUG

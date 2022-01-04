@@ -5,13 +5,13 @@ import com.kidd.msasample.msauserservice.dto.UserDto;
 import com.kidd.msasample.msauserservice.repository.UserEntity;
 import com.kidd.msasample.msauserservice.repository.UserRepository;
 import com.kidd.msasample.msauserservice.vo.ResponseOrder;
+import feign.FeignException;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.env.Environment;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
 
     UserRepository userRepository;
@@ -77,6 +78,13 @@ public class UserServiceImpl implements UserService {
         //List<ResponseOrder> orderList = orderListResponse.getBody();
 
         // Using Open Feign
+//        List<ResponseOrder> orderList = null;
+//        try {
+//            orderList = orderClientService.getOrders(userId);
+//        } catch (FeignException e) {
+//            log.error(e.getMessage());
+//        }
+
         List<ResponseOrder> orderList = orderClientService.getOrders(userId);
         userDto.setOrders(orderList);
         return userDto;

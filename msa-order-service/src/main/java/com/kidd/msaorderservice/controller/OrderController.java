@@ -32,7 +32,7 @@ public class OrderController {
         return String.format("It's working in Order service on Port %s", env.getProperty("local.server.port"));
     }
 
-    @PostMapping(value = "/orders")
+    @PostMapping(value = "/{userId}/orders")
     public ResponseEntity<ResponseOrder> createOrder(@PathVariable("userId") String userId,
                                                      @RequestBody ResponseOrder order) {
         ModelMapper mapper = new ModelMapper();
